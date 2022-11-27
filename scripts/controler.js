@@ -1,13 +1,28 @@
 "use strict";
-import { METEO_API_URL, GEOPARSING_API_URL } from "./config.js";
 
-import { getWeatherData, getPos, state } from "./model.js";
+import InputView from "./InputView.js";
+import * as model from "./model.js";
 
-// const dia = daysWeekEs[date.getDay()];
-// console.log(dia);
-// const {lat,lon} =
+async function controlGetPosWeather() {
+    try {
+        // get city:
+        const city = InputView.getCity();
+        if (!city) return;
 
-await getWeatherData(METEO_API_URL);
-await getPos(GEOPARSING_API_URL);
+        // get coordinates
+        await model.getPos(city);
 
-console.log(state);
+        // get weather data:
+        await model.getWeatherData();
+        console.log(model.state);
+    } catch (er) {
+        console.log(`controlGetCity ${er}`);
+    }
+}
+
+function init() {
+    // await getWeatherData(METEO_API_URL);
+    InputView.addHandlerGetCity(controlGetPosWeather);
+}
+
+init();

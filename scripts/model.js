@@ -1,4 +1,9 @@
-import { METEO_API_URL, GEOPARSING_API_URL, LANGUAGE } from "./config.js";
+import {
+    METEO_API_URL,
+    METEO_API_OPT,
+    GEOPARSING_API_URL,
+    LANGUAGE,
+} from "./config.js";
 import { AJAX } from "./helpers.js";
 
 export const state = {
@@ -97,9 +102,11 @@ class DayWeatherInfo {
     }
 }
 
-export async function getWeatherData(apiURL) {
+export async function getWeatherData() {
     try {
-        const data = await AJAX(apiURL);
+        const data = await AJAX(
+            `${METEO_API_URL}latitude=${state.lat}&longitude=${state.lon}${METEO_API_OPT}`
+        );
         state.data.dates = data.daily.time;
         state.data.weatherCode = data.daily.weathercode;
         state.data.minTemp = data.daily.temperature_2m_min;
@@ -109,9 +116,11 @@ export async function getWeatherData(apiURL) {
     }
 }
 
-export async function getPos(apiURL) {
+export async function getPos(city) {
     try {
-        const data = await AJAX(apiURL);
+        const data = await AJAX(
+            `${GEOPARSING_API_URL}locate=${city}&geoit=JSON`
+        );
         state.lat = data.latt * 1;
         state.lon = data.longt * 1;
         state.city = data.standard.city;
