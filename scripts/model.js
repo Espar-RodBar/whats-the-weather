@@ -3,6 +3,7 @@ import {
     METEO_API_OPT,
     GEOPARSING_API_URL,
     LANGUAGE,
+    MAX_DAYS,
 } from "./config.js";
 import { AJAX } from "./helpers.js";
 
@@ -12,11 +13,13 @@ export const state = {
     lon: 0,
     city: "",
     data: {},
+    days: [],
 };
 
 class DayWeatherInfo {
-    constructor(date, minT, maxT, wCode) {
-        this.date = new Date(date);
+    constructor(index, date, minT, maxT, wCode) {
+        this.index = index;
+        this.date = date;
         this.dayOfWeekEs = this._getNameDayWeek("ES");
         this.dayOfWeekEn = this._getNameDayWeek("EN");
         this.minTemp = minT;
@@ -43,8 +46,8 @@ class DayWeatherInfo {
             "Friday",
             "Saturday",
         ];
-        if (lang === "ES") return dayEs[this.date];
-        if (lang === "EN") return dayEn[this.date];
+        if (lang === "ES") return dayEs[new Date(this.date).getDay()];
+        if (lang === "EN") return dayEn[new Date(this.date).getDay()];
     }
 
     _getWeather(code) {
@@ -127,4 +130,25 @@ export async function getPos(city) {
     } catch (er) {
         console.log("getPos", er);
     }
+}
+
+// dates:(7) ['2022-11-28', '2022-11-29', '2022-11-30', '2022-12-01', '2022-12-02', '2022-12-03', '2022-12-04']
+// maxTemp:(7) [14.8, 14.2, 13.8, 12.5, 13.6, 12.8, 13.4]
+// minTemp:(7) [10.8, 7.3, 5.5, 5.5, 5, 2.8, 3.2]
+// weatherCode:(7) [61, 3, 3, 3, 3, 2, 45]
+
+export function buildCardData() {
+    const { data } = state;
+    for (let i = 0; i < MAX_DAYS; i++) {
+        //TODO Create cards
+        const day = new DayWeatherInfo(
+            i + 1,
+            data.dates[i],
+            data.minTemp[i],
+            data.maxTemp[i],
+            data.weatherCode[i]
+        );
+        state.days.push(day);
+    }
+    console.log(state);
 }

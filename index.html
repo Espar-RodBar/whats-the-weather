@@ -5,15 +5,36 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="scripts/controler.js" type="module" defer></script>
+        <link href="css/style.css" rel="stylesheet" />
         <title>What's the weather</title>
     </head>
     <body>
-        <h1>Whats the weather?</h1>
-        <form action="#" class="getPosition">
-            <label for="input-city">Input city</label>
-            <input type="text" class="input-city" id="input-city" />
-            <button class="frm_btn btn">Get weather info!</button>
-        </form>
-        <div class="container"></div>
+        <header class="header">
+            <h1 class="primary-header">Whats the weather?</h1>
+        </header>
+        <main class="main">
+            <form action="#" class="form-getPosition">
+                <p class="form-getPosition_text">
+                    Enter the city you want to know the weather:
+                </p>
+                <label class="form-getPosition_label" for="input-city"
+                    >Input city</label
+                >
+                <input
+                    type="text"
+                    class="form-getPosition_input"
+                    id="input-city"
+                />
+                <button class="form-getPosition_btn btn">
+                    Get weather info!
+                </button>
+            </form>
+            <section class="section-result">
+                <h2 class="secondary-header"></h2>
+
+                <div class="result-weather-container"></div>
+            </section>
+        </main>
+        <footer class="footer"></footer>
     </body>
 </html>

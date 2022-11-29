@@ -4,7 +4,8 @@
     "description": "web app to know the weather of a location",
     "main": "app.js",
     "scripts": {
-        "devserver": "live-server"
+        "devserver": "live-server",
+        "compile:sass": "node-sass sass/main.scss css/style.css -w"
     },
     "repository": {
         "type": "git",

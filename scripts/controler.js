@@ -2,6 +2,7 @@
 
 import InputView from "./InputView.js";
 import * as model from "./model.js";
+import ResultView from "./ResultView.js";
 
 async function controlGetPosWeather() {
     try {
@@ -14,7 +15,11 @@ async function controlGetPosWeather() {
 
         // get weather data:
         await model.getWeatherData();
-        console.log(model.state);
+
+        model.buildCardData();
+
+        // render cards
+        model.state.days.forEach((day) => ResultView.init(day));
     } catch (er) {
         console.log(`controlGetCity ${er}`);
     }

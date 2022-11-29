@@ -1,0 +1,31 @@
+@keyframes moveInRight {
+    0% {
+        transform: translateX(0.3rem);
+    }
+    50% {
+        transform: translateX(-0.3rem);
+    }
+    100% {
+        transform: translateX(0.3rem);
+    }
+}
+@keyframes moveInLeft {
+    0% {
+        transform: translateX(-0.3rem);
+    }
+    50% {
+        transform: translateX(0.3rem);
+    }
+    100% {
+        transform: translateX(-0.3rem);
+    }
+}
+
+@keyframes rotateSun {
+    0% {
+        transform: translate(-50%, -50%) rotateZ(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotateZ(360deg);
+    }
+}

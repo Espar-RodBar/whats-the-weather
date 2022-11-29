@@ -1,0 +1,101 @@
+.result-weather-card {
+    display: inline-block;
+    background-color: bisque;
+    padding: 2rem 1rem;
+    border-radius: 3px;
+
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.3);
+
+    transition: all 0.5s;
+
+    &_text {
+        background-color: $color-black;
+        color: $color-white;
+    }
+    &_highT {
+        padding: 0.5rem 1rem;
+    }
+    &_box {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 5%;
+        background-color: $color-primary-dark;
+        overflow: hidden;
+
+        position: relative;
+
+        & .img_sun {
+            width: 60%;
+            height: 60%;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateZ(0deg);
+
+            animation: rotateSun 50s infinite;
+        }
+        & .img_cloud_u {
+            width: 60%;
+            height: 60%;
+            position: absolute;
+            top: -5%;
+            left: 20%;
+
+            animation: moveInRight 20s infinite;
+
+            z-index: 90;
+        }
+
+        & .img_cloud_d {
+            width: 70%;
+            height: 70%;
+            position: absolute;
+            top: 30%;
+            left: 20%;
+
+            animation: moveInLeft 20s infinite;
+
+            z-index: 130;
+        }
+
+        & .img_cloud_r {
+            width: 65%;
+            height: 65%;
+            position: absolute;
+            top: 15%;
+            right: 0%;
+
+            animation: moveInLeft 12s infinite;
+
+            z-index: 100;
+        }
+        & .img_cloud_l {
+            width: 65%;
+            height: 65%;
+            position: absolute;
+            top: 25%;
+            left: 0%;
+
+            animation: moveInRight 11s infinite;
+
+            z-index: 100;
+        }
+    }
+    &_lowT {
+        padding: 0.5rem 1rem;
+    }
+
+    & .temp-img {
+        width: 2rem;
+        height: auto;
+    }
+
+    & span {
+        display: inline-block;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
+    }
+}
