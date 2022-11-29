@@ -34,17 +34,6 @@
 
             animation: rotateSun 50s infinite;
         }
-        & .img_cloud_u {
-            width: 60%;
-            height: 60%;
-            position: absolute;
-            top: -5%;
-            left: 20%;
-
-            animation: moveInRight 20s infinite;
-
-            z-index: 90;
-        }
 
         & .img_cloud_d {
             width: 70%;

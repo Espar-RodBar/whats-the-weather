@@ -5,7 +5,34 @@ class ResultView {
         this.data = data;
         console.log(data);
         this.cloudNpg = this._setCloudImg();
+        this.cloudClass = this._cloudDensity();
+        this.sunClass = this._isSunHidden();
         this.render();
+    }
+
+    _isSunHidden() {
+        if (this.data.weather === "niebla") {
+            return "quarterOpacity";
+        }
+        if (
+            this.data.weather === "lluvia_aislada" ||
+            this.data.weather === "nieve_aislada" ||
+            this.data.weather === "despejado"
+        ) {
+            return "fullOpacity";
+        }
+        return "noOpacity";
+    }
+    _cloudDensity() {
+        if (this.data.weather === "despejado") return "noOpacity";
+        if (this.data.weather === "niebla") return "halfOpacity";
+        if (
+            this.data.weather === "lluvia_aislada" ||
+            this.data.weather === "nieve_aislada"
+        ) {
+            return "threeQuarterOpacity";
+        }
+        return "fullOpacity";
     }
 
     _setCloudImg() {
@@ -46,29 +73,23 @@ class ResultView {
                             <span class="temp_h-text">${this.data.maxTemp}</span>
                         </div>
                         <div class="result-weather-card_box">
-
-                        // <img
-                        //         src="img/${this.cloudNpg}"
-                        //         alt=""
-                        //         class="img_cloud_u"
-                        //     />
-                        
+                       
                             <img
                                 src="img/${this.cloudNpg}"
                                 alt=""
-                                class="img_cloud_d"
+                                class="img_cloud_d ${this.cloudClass}"
                             />
                             <img
                                 src="img/${this.cloudNpg}"
                                 alt=""
-                                class="img_cloud_l"
+                                class="img_cloud_l ${this.cloudClass}"
                             />
                             <img
                                 src="img/${this.cloudNpg}"
                                 alt=""
-                                class="img_cloud_r"
+                                class="img_cloud_r ${this.cloudClass}"
                             />
-                            <img src="img/sun.png" alt="" class="img_sun" />
+                            <img src="img/sun.png" alt="" class="img_sun ${this.sunClass}" />
                         </div>
                         <div class="result-weather-card_lowT">
                             <img
@@ -83,5 +104,4 @@ class ResultView {
         `;
     }
 }
-
 export default new ResultView();

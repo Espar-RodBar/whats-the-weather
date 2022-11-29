@@ -41,6 +41,21 @@ body {
 .primary-header {
   text-align: center; }
 
+.noOpacity {
+  opacity: 0; }
+
+.quarterOpacity {
+  opacity: 0.4; }
+
+.halfOpacity {
+  opacity: 0.9; }
+
+.threeQuarterOpacity {
+  opacity: 0.95; }
+
+.fullOpacity {
+  opacity: 1; }
+
 .result-weather-card {
   display: inline-block;
   background-color: bisque;
@@ -68,14 +83,6 @@ body {
       left: 50%;
       transform: translate(-50%, -50%) rotateZ(0deg);
       animation: rotateSun 50s infinite; }
-    .result-weather-card_box .img_cloud_u {
-      width: 60%;
-      height: 60%;
-      position: absolute;
-      top: -5%;
-      left: 20%;
-      animation: moveInRight 20s infinite;
-      z-index: 90; }
     .result-weather-card_box .img_cloud_d {
       width: 70%;
       height: 70%;
