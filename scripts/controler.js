@@ -6,6 +6,12 @@ import ResultView from "./ResultView.js";
 
 async function controlGetPosWeather() {
     try {
+        // Reset state:
+        model.resetState();
+
+        // reset html markupt;
+        ResultView.clearMarkup();
+
         // get city:
         const city = InputView.getCity();
         if (!city) return;
@@ -19,7 +25,8 @@ async function controlGetPosWeather() {
         model.buildCardData();
 
         // render cards
-        model.state.days.forEach((day) => ResultView.init(day));
+        if (!model.state.days) return;
+        ResultView.render(model.state.days);
     } catch (er) {
         console.log(`controlGetCity ${er}`);
     }

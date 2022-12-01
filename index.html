@@ -13,22 +13,36 @@
             <h1 class="primary-header">Whats the weather?</h1>
         </header>
         <main class="main">
-            <form action="#" class="form-getPosition">
-                <p class="form-getPosition_text">
-                    Enter the city you want to know the weather:
-                </p>
-                <label class="form-getPosition_label" for="input-city"
-                    >Input city</label
-                >
-                <input
-                    type="text"
-                    class="form-getPosition_input"
-                    id="input-city"
-                />
-                <button class="form-getPosition_btn btn">
-                    Get weather info!
-                </button>
-            </form>
+            <section class="section-getposition">
+                <form action="#" class="form-getPosition">
+                    <h2 class="form-getPosition_text secondary-header">
+                        Enter the city you want to know the weather:
+                    </h2>
+                    <div class="form-getPosition_textBox">
+                        <div class="form-getPosition_input-container">
+                            <label
+                                class="form-getPosition_label"
+                                for="input-city"
+                                >Input city</label
+                            >
+                            <input
+                                type="text"
+                                class="form-getPosition_input"
+                                id="input-city"
+                                placeholder="Input city's name here!"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-getPosition_btn-container">
+                        <button class="form-getPosition_btn btn">
+                            Get weather info!
+                        </button>
+                    </div>
+                </form>
+                <div class="section-getposition-city">
+                    <p>Weather time from <span></span></p>
+                </div>
+            </section>
             <section class="section-result">
                 <h2 class="secondary-header"></h2>
 

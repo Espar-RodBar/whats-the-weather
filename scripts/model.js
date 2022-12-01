@@ -16,6 +16,15 @@ export const state = {
     days: [],
 };
 
+export function resetState() {
+    state.language = LANGUAGE;
+    state.lat = 0;
+    state.lon = 0;
+    state.city = "";
+    state.data = {};
+    state.days.length = 0;
+}
+
 class DayWeatherInfo {
     constructor(index, date, minT, maxT, wCode) {
         this.index = index;
