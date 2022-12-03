@@ -74,8 +74,9 @@ class ResultView {
     _generateMarkup() {
         return `
         <div class="result-weather-card card_${this.data.index}">
-                        <h3 class="tertiary-header">${
-                            this.data.dayOfWeekEs
+                    <div class="side">
+                        <h3 class="tertiary-header card-header">${
+                            this.data.dayOfWeekEn
                         }</h3>
                         <p class="result-weather-card_text">${
                             this.data.date
@@ -88,8 +89,16 @@ class ResultView {
                             />
                             <span class="temp_h-text">${
                                 this.data.maxTemp
-                            }</span>
+                            }ºC</span>
                         </div>
+                        <div class="result-weather-card_lowT">
+                        <img
+                            src="img/blue-triangle.png"
+                            alt=""
+                            class="temp_l-img temp-img"
+                        />
+                        <span class="temp_l-text">${this.data.minTemp}ºC</span>
+                    </div>
                         <div class="result-weather-card_box">
                        
                             <img
@@ -113,17 +122,8 @@ class ResultView {
                                 this.sunClass
                             }" />
                         </div>
-                        <div class="result-weather-card_lowT">
-                            <img
-                                src="img/blue-triangle.png"
-                                alt=""
-                                class="temp_l-img temp-img"
-                            />
-                            <span class="temp_l-text">${
-                                this.data.minTemp
-                            }</span>
-                        </div>
-                    </div>
+                </div>
+             <div class="back"></div>
         
         `;
     }

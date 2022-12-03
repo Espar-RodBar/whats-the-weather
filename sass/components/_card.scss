@@ -1,90 +1,151 @@
-.result-weather-card {
-    display: inline-block;
-    background-color: bisque;
-    padding: 2rem 1rem;
-    border-radius: 3px;
-
-    box-shadow: 0 1rem 2rem rgba($color-black, 0.3);
-
-    transition: all 0.5s;
-
-    &_text {
-        background-color: $color-black;
-        color: $color-white;
+.result-weather {
+    &-container {
+        display: flex;
+        flex-flow: wrap;
+        gap: 1rem;
     }
-    &_highT {
-        padding: 0.5rem 1rem;
-    }
-    &_box {
-        width: 10rem;
-        height: 10rem;
-        border-radius: 5%;
-        background-color: $color-primary-dark;
-        overflow: hidden;
 
+    &-card {
+        margin: 0 auto;
+        display: inline-block;
+        background-color: transparent;
+        width: 13rem;
+        height: 20rem;
+        perspective: 200rem;
+        -moz-perspective: 200rem;
         position: relative;
 
-        & .img_sun {
-            width: 60%;
-            height: 60%;
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotateZ(0deg);
+        & .side,
+        & .back {
+            background-color: $color-white;
 
-            animation: rotateSun 50s infinite;
+            border-radius: 3px;
+
+            padding: 2rem 1rem;
+            width: 100%;
+            height: 20rem;
+            box-shadow: 0 1rem 2rem rgba($color-black, 0.3);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            backface-visibility: hidden;
+            transition: all 0.8s;
         }
 
-        & .img_cloud_d {
-            width: 70%;
-            height: 70%;
-            position: absolute;
-            top: 30%;
-            left: 20%;
-
-            animation: moveInLeft 20s infinite;
-
-            z-index: 130;
+        & .back {
+            background: linear-gradient(
+                to left bottom,
+                $color-white,
+                $color-primary-light
+            );
+            transform: rotateY(-180deg);
         }
 
-        & .img_cloud_r {
-            width: 65%;
-            height: 65%;
-            position: absolute;
-            top: 15%;
-            right: 0%;
-
-            animation: moveInLeft 12s infinite;
-
-            z-index: 100;
+        &:hover {
+            & .side {
+                transform: rotateY(180deg) scale(1.2) rotateY(180deg);
+                box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
+            }
+            & .back {
+                transform: rotateY(0deg) scale(1.2) rotateY(180deg);
+                box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
+            }
+            z-index: 500;
         }
-        & .img_cloud_l {
-            width: 65%;
-            height: 65%;
-            position: absolute;
-            top: 25%;
-            left: 0%;
 
-            animation: moveInRight 11s infinite;
-
-            z-index: 100;
+        & .card-header {
+            text-align: center;
         }
-    }
-    &_lowT {
-        padding: 0.5rem 1rem;
-    }
 
-    & .temp-img {
-        width: 2rem;
-        height: auto;
-    }
+        &_text {
+            text-align: center;
+            background: linear-gradient(
+                to right,
+                transparent,
+                $color-black 20% 80%,
+                transparent
+            );
+            color: $color-white;
+        }
+        &_highT,
+        &_lowT {
+            padding: 0.5rem 0;
+            display: inline-block;
+        }
+        &_highT {
+            float: left;
+        }
+        &_lowT {
+            float: right;
+        }
 
-    & span {
-        display: inline-block;
-    }
+        &_box {
+            width: 100%;
+            height: 10rem;
+            border-radius: 5%;
+            background-color: $color-primary-dark;
+            overflow: hidden;
 
-    &:hover {
-        transform: scale(1.1);
-        box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
+            position: relative;
+
+            & .img_sun {
+                width: 60%;
+                height: 60%;
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotateZ(0deg);
+
+                animation: rotateSun 50s infinite;
+            }
+
+            & .img_cloud_d {
+                width: 70%;
+                height: 70%;
+                position: absolute;
+                top: 30%;
+                left: 20%;
+
+                animation: moveInLeft 20s infinite;
+
+                z-index: 130;
+            }
+
+            & .img_cloud_r {
+                width: 65%;
+                height: 65%;
+                position: absolute;
+                top: 15%;
+                right: 0%;
+
+                animation: moveInLeft 12s infinite;
+
+                z-index: 100;
+            }
+            & .img_cloud_l {
+                width: 65%;
+                height: 65%;
+                position: absolute;
+                top: 25%;
+                left: 0%;
+
+                animation: moveInRight 11s infinite;
+
+                z-index: 100;
+            }
+        }
+
+        & .temp-img {
+            width: 1rem;
+            height: auto;
+        }
+
+        & .temp_h-text,
+        & .temp_l-text {
+            font-size: 0.8rem;
+            display: inline-block;
+        }
     }
 }
