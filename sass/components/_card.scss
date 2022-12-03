@@ -16,16 +16,18 @@
         -webkit-perspective: 200rem;
         position: relative;
 
+        transition: all 1.8s;
+
         & .side,
         & .back {
             background-color: $color-white;
 
             border-radius: 3px;
+            border: 1px solid rgba($color-black, 0.3);
 
             padding: 2rem 1rem;
             width: 100%;
             height: 20rem;
-            // box-shadow: 0 1rem 2rem rgba($color-black, 0.3);
 
             position: absolute;
             top: 0;
@@ -57,19 +59,17 @@
 
         &:hover {
             & .side {
-                // -webkit-transform: rotateY(180deg) scale(1.2) rotateY(180deg);
-                // transform: rotateY(180deg) scale(1.2) rotateY(180deg);
                 transform: rotateY(360deg);
                 -webkit-transform: rotateY(360deg);
                 // box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
             }
             & .back {
-                // -webkit-transform: rotateY(0deg) scale(1.2) rotateY(180deg);
-                // transform: rotateY(0deg) scale(1.2) rotateY(180deg);
                 transform: rotateY(180deg);
                 -webkit-transform: rotateY(180deg);
                 // box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
             }
+
+            transform: translateY(-1rem) scale(1.2);
         }
 
         & .card-header {
