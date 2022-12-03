@@ -79,6 +79,7 @@ body {
   height: 20rem;
   perspective: 200rem;
   -moz-perspective: 200rem;
+  -webkit-perspective: 200rem;
   position: relative; }
   .result-weather-card .side,
   .result-weather-card .back {
