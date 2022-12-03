@@ -29,6 +29,7 @@ async function controlGetPosWeather() {
         ResultView.render(model.state.days);
     } catch (er) {
         console.log(`controlGetCity ${er}`);
+        ResultView.renderError(er);
     }
 }
 

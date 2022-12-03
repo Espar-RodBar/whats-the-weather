@@ -57,6 +57,10 @@ class ResultView {
         });
     }
 
+    renderError(msg) {
+        window.alert(`An unexpected error detected! Try later! ${msg}`);
+    }
+
     clearMarkup() {
         this._parentEl.innerHTML = "";
     }
