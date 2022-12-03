@@ -96,6 +96,7 @@ body {
     -webkit-backface-visibility: hidden;
     transition: all 0.8s; }
   .result-weather-card .back {
+    top: 20rem;
     background: linear-gradient(to left bottom, #e7f0ff, #91bbff);
     transform: rotateY(-180deg); }
   .result-weather-card:hover {
