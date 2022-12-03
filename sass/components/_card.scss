@@ -31,7 +31,7 @@
             top: 0;
             left: 0;
 
-            transition: all 10.8s;
+            transition: all 4.8s;
         }
 
         & .side {
@@ -59,15 +59,15 @@
             & .side {
                 // -webkit-transform: rotateY(180deg) scale(1.2) rotateY(180deg);
                 // transform: rotateY(180deg) scale(1.2) rotateY(180deg);
-                transform: rotateY(180deg);
-                -webkit-transform: rotateY(180deg);
+                transform: rotateY(360deg);
+                -webkit-transform: rotateY(360deg);
                 // box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
             }
             & .back {
                 // -webkit-transform: rotateY(0deg) scale(1.2) rotateY(180deg);
                 // transform: rotateY(0deg) scale(1.2) rotateY(180deg);
-                transform: rotateY(0deg);
-                -webkit-transform: rotateY(0deg);
+                transform: rotateY(180deg);
+                -webkit-transform: rotateY(180deg);
                 // box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
             }
         }
