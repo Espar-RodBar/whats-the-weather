@@ -49,10 +49,12 @@
         &:hover {
             & .side {
                 transform: rotateY(180deg) scale(1.2) rotateY(180deg);
+                -webkit-transform: rotateY(180deg) scale(1.2) rotateY(180deg);
                 box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
             }
             & .back {
                 transform: rotateY(0deg) scale(1.2) rotateY(180deg);
+                -webkit-transform: rotateY(0deg) scale(1.2) rotateY(180deg);
                 box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
             }
             z-index: 500;
