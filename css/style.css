@@ -98,6 +98,9 @@ body {
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden; }
   .result-weather-card .back {
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     background: linear-gradient(to left bottom, #e7f0ff, #91bbff);
     transform: rotateY(-180deg); }
   .result-weather-card:hover .side {

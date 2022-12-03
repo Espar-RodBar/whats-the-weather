@@ -43,6 +43,10 @@
 
         & .back {
             // top: 20rem;
+            backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+
             background: linear-gradient(
                 to left bottom,
                 $color-white,
