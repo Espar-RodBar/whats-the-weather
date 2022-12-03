@@ -92,6 +92,8 @@ body {
     top: 0;
     left: 0;
     backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     transition: all 0.8s; }
   .result-weather-card .back {
     background: linear-gradient(to left bottom, #e7f0ff, #91bbff);

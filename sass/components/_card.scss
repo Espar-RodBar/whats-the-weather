@@ -31,6 +31,9 @@
             left: 0;
 
             backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+
             transition: all 0.8s;
         }
 
