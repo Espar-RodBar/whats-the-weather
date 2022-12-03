@@ -35,9 +35,10 @@
         }
 
         & .side {
+            z-index: 10;
             backface-visibility: hidden;
-            // -moz-backface-visibility: hidden;
-            // -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         & .back {
@@ -65,7 +66,6 @@
                 -webkit-transform: rotateY(0deg);
                 box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
             }
-            z-index: 500;
         }
 
         & .card-header {
