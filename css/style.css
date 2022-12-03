@@ -194,6 +194,7 @@ body {
     padding: 1rem 2rem;
     border: 1px solid #91bbff;
     border-radius: 1rem;
+    font-size: 2rem;
     color: #0047b8; }
     .form-getPosition_input::placeholder {
       color: #91bbff; }
