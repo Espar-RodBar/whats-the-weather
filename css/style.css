@@ -84,9 +84,8 @@ body {
   transition: all 1.8s; }
   .result-weather-card .side,
   .result-weather-card .back {
-    background-color: #e7f0ff;
     border-radius: 3px;
-    border: 1px solid rgba(0, 8, 21, 0.3);
+    border: 1px solid transparent;
     padding: 2rem 1rem;
     width: 100%;
     height: 20rem;
@@ -95,6 +94,7 @@ body {
     left: 0;
     transition: all 1.8s; }
   .result-weather-card .side {
+    background: linear-gradient(#e7f0ff, #e7f0ff) padding-box, linear-gradient(to bottom, #91bbff, #0047b8) border-box;
     z-index: 10;
     backface-visibility: hidden;
     -moz-backface-visibility: hidden;
@@ -103,7 +103,7 @@ body {
     backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    background: linear-gradient(to left bottom, #e7f0ff, #91bbff);
+    background: linear-gradient(to left bottom, #e7f0ff, #91bbff) padding-box, linear-gradient(to bottom, #91bbff, #0047b8) border-box;
     transform: rotateY(-180deg); }
   .result-weather-card:hover {
     transform: translateY(-1rem) scale(1.2); }
