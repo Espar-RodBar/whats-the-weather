@@ -95,7 +95,6 @@ body {
   .result-weather-card .back {
     top: 20rem;
     background: linear-gradient(to left bottom, #e7f0ff, #91bbff);
-    z-index: -10;
     transform: rotateY(-180deg); }
   .result-weather-card:hover {
     z-index: 500; }
