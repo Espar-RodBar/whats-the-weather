@@ -97,6 +97,7 @@ body {
     transition: all 10.8s; }
   .result-weather-card .back {
     background: linear-gradient(to left bottom, #e7f0ff, #91bbff);
+    z-index: 10;
     transform: rotateY(-180deg); }
   .result-weather-card:hover {
     z-index: 500; }
