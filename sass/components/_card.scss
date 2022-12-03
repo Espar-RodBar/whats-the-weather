@@ -34,9 +34,9 @@
         }
 
         & .side {
-            backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
+            // backface-visibility: hidden;
+            // -moz-backface-visibility: hidden;
+            // -webkit-backface-visibility: hidden;
         }
 
         & .back {
@@ -54,13 +54,13 @@
             & .side {
                 // -webkit-transform: rotateY(180deg) scale(1.2) rotateY(180deg);
                 // transform: rotateY(180deg) scale(1.2) rotateY(180deg);
-                transform: rotateY(360deg) scale(1.2);
+                transform: rotateY(180deg) scale(1.2);
                 box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
             }
             & .back {
                 // -webkit-transform: rotateY(0deg) scale(1.2) rotateY(180deg);
                 // transform: rotateY(0deg) scale(1.2) rotateY(180deg);
-                transform: rotateY(180deg) scale(1.2);
+                transform: rotateY(0deg) scale(1.2);
                 box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
             }
             z-index: 500;

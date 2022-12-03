@@ -92,10 +92,6 @@ body {
     top: 0;
     left: 0;
     transition: all 10.8s; }
-  .result-weather-card .side {
-    backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -webkit-backface-visibility: hidden; }
   .result-weather-card .back {
     top: 20rem;
     background: linear-gradient(to left bottom, #e7f0ff, #91bbff);
@@ -104,10 +100,10 @@ body {
   .result-weather-card:hover {
     z-index: 500; }
     .result-weather-card:hover .side {
-      transform: rotateY(360deg) scale(1.2);
+      transform: rotateY(180deg) scale(1.2);
       box-shadow: 0 1rem 4rem rgba(0, 8, 21, 0.4); }
     .result-weather-card:hover .back {
-      transform: rotateY(180deg) scale(1.2);
+      transform: rotateY(0deg) scale(1.2);
       box-shadow: 0 1rem 4rem rgba(0, 8, 21, 0.4); }
   .result-weather-card .card-header {
     text-align: center; }
