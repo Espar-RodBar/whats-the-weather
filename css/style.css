@@ -93,6 +93,8 @@ body {
     top: 0;
     left: 0;
     transition: all 10.8s; }
+  .result-weather-card .side {
+    backface-visibility: hidden; }
   .result-weather-card .back {
     top: 20rem;
     background: linear-gradient(to left bottom, #e7f0ff, #91bbff);
