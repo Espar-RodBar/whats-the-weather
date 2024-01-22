@@ -1,20 +1,24 @@
 {
-    "name": "whats-the-weather",
-    "version": "1.0.0",
-    "description": "web app to know the weather of a location",
-    "main": "app.js",
-    "scripts": {
-        "devserver": "live-server",
-        "compile:sass": "node-sass sass/main.scss css/style.css -w"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/NCr4wl3r/whats-the-weather.git"
-    },
-    "author": "Espar-RodBar",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/NCr4wl3r/whats-the-weather/issues"
-    },
-    "homepage": "https://github.com/NCr4wl3r/whats-the-weather#readme"
+  "name": "whats-the-weather",
+  "version": "1.0.0",
+  "description": "web app to know the weather of a location",
+  "main": "app.js",
+  "scripts": {
+    "devserver": "live-server",
+    "compile:sass": "node-sass sass/main.scss css/style.css -w",
+    "sass-dev": "sass --watch --update --style=expanded sass:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NCr4wl3r/whats-the-weather.git"
+  },
+  "author": "Espar-RodBar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NCr4wl3r/whats-the-weather/issues"
+  },
+  "homepage": "https://github.com/NCr4wl3r/whats-the-weather#readme",
+  "devDependencies": {
+    "sass": "^1.70.0"
+  }
 }

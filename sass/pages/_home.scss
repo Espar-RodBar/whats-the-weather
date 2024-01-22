@@ -1,36 +1,38 @@
 .header {
-    max-width: 60rem;
+  max-width: 60rem;
 
-    padding: 3rem;
-    background: linear-gradient(to right, $color-primary, $color-primary-dark);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    color: $color-white;
+  padding: 3rem;
+  background: linear-gradient(to right, $color-primary, $color-primary-dark);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: $color-white;
 
-    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 }
 .main {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .section-getposition {
-    padding: 1rem;
-    height: 25rem;
-    max-width: 60rem;
+  padding: 1rem;
+  min-height: 25rem;
+  max-width: 60rem;
+  display: flex;
+  flex-wrap: wrap;
 
-    &-city {
-        padding: 1.6rem;
-        font-size: 1.6rem;
-        transform: translateY(-5rem);
-    }
+  &-city {
+    padding: 1.6rem;
+    font-size: 1.6rem;
+    width: 100%;
+  }
 }
 
 .section-result {
-    max-width: 60rem;
+  max-width: 60rem;
 
-    padding: 2rem 1rem;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background: linear-gradient(to right, $color-primary, $color-primary-dark);
-    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+  padding: 2rem 1rem;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: linear-gradient(to right, $color-primary, $color-primary-dark);
+  box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
 }
