@@ -140,6 +140,20 @@ export async function getPos(city) {
   }
 }
 
+export async function getPosGPS() {
+  try {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      const { latitude, longitude } = pos.coords
+      console.log('data on getPosGPS:', latitude, longitude)
+      state.lat = latitude * 1
+      state.lon = longitude * 1
+      state.city = 'from actual position!'
+    })
+  } catch (er) {
+    console.log('getPos', er)
+  }
+}
+
 // dates:(7) ['2022-11-28', '2022-11-29', '2022-11-30', '2022-12-01', '2022-12-02', '2022-12-03', '2022-12-04']
 // maxTemp:(7) [14.8, 14.2, 13.8, 12.5, 13.6, 12.8, 13.4]
 // minTemp:(7) [10.8, 7.3, 5.5, 5.5, 5, 2.8, 3.2]

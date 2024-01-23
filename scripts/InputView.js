@@ -18,12 +18,12 @@ class InputView {
       e.preventDefault()
       handler()
     })
-
-    addHandlerGetPosition(handler) {
-        this._parentEl.addEventListener('submit', function (e) {
-          e.preventDefault()
-          handler()
-        })
+  }
+  addHandlerGetPosition(handler) {
+    this._parentEl.addEventListener('submit', function (e) {
+      e.preventDefault()
+      handler()
+    })
   }
 
   render(city) {
