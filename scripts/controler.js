@@ -35,17 +35,12 @@ async function controlGetCityWeather() {
 }
 
 async function controlGetPosWeather() {
-  try {
-    // Reset state:
-    model.resetState()
+  async function success(position) {
+    const { latitude, longitude } = position.coords
+    console.log('data on getPosGPS:', latitude, longitude)
+    await model.getPosGPS(latitude, longitude)
 
-    // reset html markupt;
-    ResultView.clearMarkup()
-
-    // get coordinates
-    await model.getPosGPS()
-
-    // get weather data:
+    // get weather data
     await model.getWeatherData()
 
     model.buildCardData()
@@ -54,6 +49,16 @@ async function controlGetPosWeather() {
     if (!model.state.days) return
     ResultView.renderCity('From actual position.')
     ResultView.render(model.state.days)
+  }
+  try {
+    // Reset state:
+    model.resetState()
+
+    // reset html markupt;
+    ResultView.clearMarkup()
+
+    // get coordinates
+    navigator.geolocation.getCurrentPosition(success)
   } catch (er) {
     console.log(`controlGetCity ${er}`)
     ResultView.renderError(er)

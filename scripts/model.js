@@ -123,6 +123,7 @@ export async function getWeatherData() {
     state.data.weatherCode = data.daily.weathercode
     state.data.minTemp = data.daily.temperature_2m_min
     state.data.maxTemp = data.daily.temperature_2m_max
+    console.log('getting weather data')
   } catch (er) {
     console.log('getWeatherData', er)
   }
@@ -140,15 +141,11 @@ export async function getPos(city) {
   }
 }
 
-export async function getPosGPS() {
+export async function getPosGPS(latitude, longitude) {
   try {
-    navigator.geolocation.getCurrentPosition((pos) => {
-      const { latitude, longitude } = pos.coords
-      console.log('data on getPosGPS:', latitude, longitude)
-      state.lat = latitude * 1
-      state.lon = longitude * 1
-      state.city = ''
-    })
+    state.lat = latitude * 1
+    state.lon = longitude * 1
+    state.city = ''
   } catch (er) {
     console.log('getPos', er)
   }
@@ -171,5 +168,5 @@ export function buildCardData() {
     )
     state.days.push(day)
   }
-  console.log(state)
+  console.log('building card...:', state)
 }

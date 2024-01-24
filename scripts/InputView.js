@@ -28,12 +28,6 @@ class InputView {
         handler()
       })
   }
-
-  // render(city) {
-  //   if (!city) return
-  //   this._parentEl.querySelector('.section-getposition-city span').textContent =
-  //     city
-  // }
 }
 
 export default new InputView()
