@@ -58,7 +58,9 @@ async function controlGetPosWeather() {
     ResultView.clearMarkup()
 
     // get coordinates
-    navigator.geolocation.getCurrentPosition(success)
+    navigator.geolocation.getCurrentPosition(success, (err) => {
+      throw new Error("Couldn't get geolocation")
+    })
   } catch (er) {
     console.log(`controlGetCity ${er}`)
     ResultView.renderError(er)
