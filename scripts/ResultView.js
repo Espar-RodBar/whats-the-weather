@@ -1,89 +1,94 @@
 class ResultView {
-    _parentEl = document.querySelector(".result-weather-container");
-    constructor() {}
+  _parentEl = document.querySelector('.result-weather-container')
+  constructor() {}
 
-    _isSunHidden() {
-        if (this.data.weather === "niebla") {
-            return "quarterOpacity";
-        }
-        if (
-            this.data.weather === "lluvia_aislada" ||
-            this.data.weather === "nieve_aislada" ||
-            this.data.weather === "despejado"
-        ) {
-            return "fullOpacity";
-        }
-        return "noOpacity";
+  _isSunHidden() {
+    if (this.data.weather === 'niebla') {
+      return 'quarterOpacity'
     }
-    _cloudDensity() {
-        if (this.data.weather === "despejado") return "noOpacity";
-        if (this.data.weather === "niebla") return "halfOpacity";
-        if (
-            this.data.weather === "lluvia_aislada" ||
-            this.data.weather === "nieve_aislada"
-        ) {
-            return "threeQuarterOpacity";
-        }
-        return "fullOpacity";
+    if (
+      this.data.weather === 'lluvia_aislada' ||
+      this.data.weather === 'nieve_aislada' ||
+      this.data.weather === 'despejado'
+    ) {
+      return 'fullOpacity'
     }
+    return 'noOpacity'
+  }
+  _cloudDensity() {
+    if (this.data.weather === 'despejado') return 'noOpacity'
+    if (this.data.weather === 'niebla') return 'halfOpacity'
+    if (
+      this.data.weather === 'lluvia_aislada' ||
+      this.data.weather === 'nieve_aislada'
+    ) {
+      return 'threeQuarterOpacity'
+    }
+    return 'fullOpacity'
+  }
 
-    _setCloudImg() {
-        if (this.data.weather === "nublado" || this.data.weather === "niebla") {
-            return "cloud.png";
-        }
-        if (
-            this.data.weather === "llovizna" ||
-            this.data.weather === "lluvia" ||
-            this.data.weather === "tormenta" ||
-            this.data.weather === "lluvia_aislada"
-        ) {
-            return "rain.png";
-        }
-        if (
-            this.data.weather === "nieve" ||
-            this.data.weather === "nieve_aislada"
-        ) {
-            return "snow.png";
-        }
+  _setCloudImg() {
+    if (this.data.weather === 'nublado' || this.data.weather === 'niebla') {
+      return 'cloud.png'
     }
-    render(days) {
-        days.forEach((day) => {
-            this.data = day;
-            this.cloudNpg = this._setCloudImg();
-            this.cloudClass = this._cloudDensity();
-            this.sunClass = this._isSunHidden();
-            const markup = this._generateMarkup();
-            this._parentEl.insertAdjacentHTML("beforeend", markup);
-        });
+    if (
+      this.data.weather === 'llovizna' ||
+      this.data.weather === 'lluvia' ||
+      this.data.weather === 'tormenta' ||
+      this.data.weather === 'lluvia_aislada'
+    ) {
+      return 'rain.png'
     }
+    if (
+      this.data.weather === 'nieve' ||
+      this.data.weather === 'nieve_aislada'
+    ) {
+      return 'snow.png'
+    }
+  }
+  render(days) {
+    days.forEach((day) => {
+      this.data = day
+      this.cloudNpg = this._setCloudImg()
+      this.cloudClass = this._cloudDensity()
+      this.sunClass = this._isSunHidden()
+      const markup = this._generateMarkup()
+      this._parentEl.insertAdjacentHTML('beforeend', markup)
+    })
+  }
 
-    renderError(msg) {
-        window.alert(`An unexpected error detected! Try later! ${msg}`);
-    }
+  renderCity(city) {
+    if (!city) return
+    document.querySelector('.section-getposition-city span').textContent = city
+  }
 
-    clearMarkup() {
-        this._parentEl.innerHTML = "";
-    }
-    renderError() {
-        this.clearMarkup();
-        const markup = `
+  renderError(msg) {
+    window.alert(`An unexpected error detected! Try later! ${msg}`)
+  }
+
+  clearMarkup() {
+    this._parentEl.innerHTML = ''
+  }
+  renderError() {
+    this.clearMarkup()
+    const markup = `
         <div class="error-msg-box">
                 <h2 class="secondary-header">An error has been found!</h2>
                 <p>Try in a few minutes again.</p>
         </div>
-        `;
-        this._parentEl.insertAdjacentHTML("beforeend", markup);
-    }
+        `
+    this._parentEl.insertAdjacentHTML('beforeend', markup)
+  }
 
-    _generateMarkup() {
-        return `
+  _generateMarkup() {
+    return `
         <div class="result-weather-card card_${this.data.index}">
                     <div class="side">
                         <h3 class="tertiary-header card-header">${
-                            this.data.dayOfWeekEn
+                          this.data.dayOfWeekEn
                         }</h3>
                         <p class="result-weather-card_text">${
-                            this.data.date
+                          this.data.date
                         }</p>
                         <div class="result-weather-card_highT">
                             <img
@@ -92,7 +97,7 @@ class ResultView {
                                 class="temp_h-img temp-img"
                             />
                             <span class="temp_h-text">${
-                                this.data.maxTemp
+                              this.data.maxTemp
                             }ºC</span>
                         </div>
                         <div class="result-weather-card_lowT">
@@ -109,8 +114,10 @@ class ResultView {
                                 src="img/${this.cloudNpg}"
                                 alt=""
                                 class="img_cloud_d ${this.cloudClass}  ${
-            this.data.weather === "lluvia_aislada" ? "noOpacity" : ""
-        }"
+                                  this.data.weather === 'lluvia_aislada'
+                                    ? 'noOpacity'
+                                    : ''
+                                }"
                             />
                             <img
                                 src="img/${this.cloudNpg}"
@@ -123,13 +130,13 @@ class ResultView {
                                 class="img_cloud_r ${this.cloudClass}"
                             />
                             <img src="img/sun.png" alt="" class="img_sun ${
-                                this.sunClass
+                              this.sunClass
                             }" />
                         </div>
                 </div>
              <div class="back"></div>
         
-        `;
-    }
+        `
+  }
 }
-export default new ResultView();
+export default new ResultView()

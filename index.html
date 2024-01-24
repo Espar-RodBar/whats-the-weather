@@ -1,76 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="scripts/controler.js" type="module" defer></script>
-        <link href="css/style.css" rel="stylesheet" />
-        <title>What's the weather</title>
-    </head>
-    <body>
-        <header class="header">
-            <h1 class="primary-header">Whats the weather?</h1>
-        </header>
-        <main class="main">
-            <section class="section-getposition">
-                <form action="#" class="form-getPosition">
-                    <h2 class="form-getPosition_text secondary-header">
-                        Enter the city you want to know the weather:
-                    </h2>
-                    <div class="form-getPosition_textBox">
-                        <div class="form-getPosition_input-container">
-                            <label
-                                class="form-getPosition_label"
-                                for="input-city"
-                                >Input city</label
-                            >
-                            <input
-                                type="text"
-                                class="form-getPosition_input"
-                                id="input-city"
-                                placeholder="Input city's name here!"
-                            />
-                        </div>
-                    </div>
-                    <div class="form-getPosition_btn-container">
-                        <button class="form-getPosition_btn btn">
-                            Get weather info!
-                        </button>
-                    </div>
-                </form>
-                <div class="section-getposition-city">
-                    <p>Weather time from <span></span></p>
-                </div>
-            </section>
-            <section class="section-result">
-                <h2 class="secondary-header"></h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="scripts/controler.js" type="module" defer></script>
+    <link href="css/main.css" rel="stylesheet" />
+    <title>What's the weather</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="primary-header">Whats the weather?</h1>
+    </header>
+    <main class="main">
+      <section class="section-getposition">
+        <h2 class="section-getPosition_text secondary-header">
+          Enter the city you want to know the weather:
+        </h2>
+        <form class="form-getCity">
+          <label class="form-getCity_label"
+            >Input city
+            <input
+              type="text"
+              class="form-getCity_input"
+              id="input-city"
+              placeholder="Input city's name here!"
+          /></label>
 
-                <div class="result-weather-container"></div>
-            </section>
-        </main>
-        <footer class="footer">
-            The icons used on the web-app are from icons8.com
+          <button class="form-getCity_btn btn">Get weather info!</button>
+        </form>
+        <form class="form-getPosition">
+          <label class="form-getPosition_label" for="get_user_pos"
+            >From my position</label
+          >
 
-            <a target="_blank" href="https://icons8.com/icon/8EUmYhfLPTCF/sun"
-                >Sun</a
-            >
-            <a
-                target="_blank"
-                href="https://icons8.com/icon/ycLdTupX7dng/rainfall"
-                >Rainfall</a
-            >
-            <a target="_blank" href="https://icons8.com/icon/YAYVfad1K0Lp/snow"
-                >Snow</a
-            >
-            <a target="_blank" href="https://icons8.com/icon/1RZffALm9Wgo/cloud"
-                >Cloud</a
-            >
-            <a
-                target="_blank"
-                href="https://icons8.com/icon/TkGybXXtSFTm/information-pyramid"
-                >Information Pyramid</a
-            >
-        </footer>
-    </body>
+          <button class="form-getPosition_btn btn">Get!</button>
+        </form>
+        <div class="section-getposition-city">
+          <p>Weather time from <span></span></p>
+        </div>
+      </section>
+      <section class="section-result">
+        <h2 class="secondary-header"></h2>
+
+        <div class="result-weather-container"></div>
+      </section>
+    </main>
+    <footer class="footer">
+      The icons used on the web-app are from icons8.com
+
+      <a target="_blank" href="https://icons8.com/icon/8EUmYhfLPTCF/sun">Sun</a>
+      <a target="_blank" href="https://icons8.com/icon/ycLdTupX7dng/rainfall"
+        >Rainfall</a
+      >
+      <a target="_blank" href="https://icons8.com/icon/YAYVfad1K0Lp/snow"
+        >Snow</a
+      >
+      <a target="_blank" href="https://icons8.com/icon/1RZffALm9Wgo/cloud"
+        >Cloud</a
+      >
+      <a
+        target="_blank"
+        href="https://icons8.com/icon/TkGybXXtSFTm/information-pyramid"
+        >Information Pyramid</a
+      >
+    </footer>
+  </body>
 </html>
