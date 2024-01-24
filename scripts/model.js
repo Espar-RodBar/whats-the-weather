@@ -147,7 +147,7 @@ export async function getPosGPS() {
       console.log('data on getPosGPS:', latitude, longitude)
       state.lat = latitude * 1
       state.lon = longitude * 1
-      state.city = 'from actual position!'
+      state.city = ''
     })
   } catch (er) {
     console.log('getPos', er)

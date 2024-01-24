@@ -26,6 +26,7 @@ async function controlGetCityWeather() {
 
     // render cards
     if (!model.state.days) return
+    ResultView.renderCity(city)
     ResultView.render(model.state.days)
   } catch (er) {
     console.log(`controlGetCity ${er}`)
@@ -51,6 +52,7 @@ async function controlGetPosWeather() {
 
     // render cards
     if (!model.state.days) return
+    ResultView.renderCity('From actual position.')
     ResultView.render(model.state.days)
   } catch (er) {
     console.log(`controlGetCity ${er}`)
