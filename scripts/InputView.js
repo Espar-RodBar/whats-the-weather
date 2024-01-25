@@ -1,5 +1,5 @@
 class InputView {
-  _parentEl = document.querySelector('.section-getposition')
+  _parentEl = document.querySelector('.section-getPosition')
 
   getCity() {
     const inputEl = this._parentEl.querySelector('.form-getCity_input')

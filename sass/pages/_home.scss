@@ -13,12 +13,18 @@
   margin: 0 auto;
 }
 
-.section-getposition {
+.section-getPosition {
   padding: 1rem;
   min-height: 25rem;
   max-width: 60rem;
   display: flex;
   flex-wrap: wrap;
+  gap: 2rem;
+
+  &-header {
+    width: 100%;
+    text-align: center;
+  }
 
   &-city {
     padding: 1.6rem;

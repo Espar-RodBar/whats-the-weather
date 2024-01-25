@@ -57,9 +57,12 @@ class ResultView {
     })
   }
 
-  renderCity(city) {
-    if (!city) return
-    document.querySelector('.section-getposition-city span').textContent = city
+  renderCity(city, country = '') {
+    if (!city) throw new Error('empty string on the city parameter')
+
+    const cityString = city + (country ? `(${country})` : '')
+    document.querySelector('.section-getPosition-city span').textContent =
+      cityString
   }
 
   renderError(msg) {

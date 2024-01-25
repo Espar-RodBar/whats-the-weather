@@ -13,30 +13,31 @@
       <h1 class="primary-header">Whats the weather?</h1>
     </header>
     <main class="main">
-      <section class="section-getposition">
-        <h2 class="section-getPosition_text secondary-header">
-          Enter the city you want to know the weather:
+      <section class="section-getPosition">
+        <h2 class="section-getPosition-header secondary-header">
+          Check the weather
         </h2>
         <form class="form-getCity">
+          <p>Write the city and the country for a search more accurate.</p>
           <label class="form-getCity_label"
-            >Input city
+            >City( and Country)
             <input
               type="text"
               class="form-getCity_input"
               id="input-city"
-              placeholder="Input city's name here!"
+              placeholder="Barcelona Ecuador"
           /></label>
 
-          <button class="form-getCity_btn btn">Get weather info!</button>
+          <button class="form-getCity_btn btn">Get info!</button>
         </form>
         <form class="form-getPosition">
+          <p>Give access to your position and got the weather info</p>
           <label class="form-getPosition_label" for="get_user_pos"
-            >From my position</label
+            >From your position</label
           >
-
           <button class="form-getPosition_btn btn">Get!</button>
         </form>
-        <div class="section-getposition-city">
+        <div class="section-getPosition-city">
           <p>Weather time from <span></span></p>
         </div>
       </section>
