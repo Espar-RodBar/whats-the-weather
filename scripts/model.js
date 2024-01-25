@@ -12,6 +12,7 @@ export const state = {
   lat: 0,
   lon: 0,
   city: '',
+  country: '',
   data: {},
   days: [],
 }
@@ -21,6 +22,7 @@ export function resetState() {
   state.lat = 0
   state.lon = 0
   state.city = ''
+  state.country = ''
   state.data = {}
   state.days.length = 0
 }
@@ -123,7 +125,6 @@ export async function getWeatherData() {
     state.data.weatherCode = data.daily.weathercode
     state.data.minTemp = data.daily.temperature_2m_min
     state.data.maxTemp = data.daily.temperature_2m_max
-    console.log('getting weather data')
   } catch (er) {
     console.log('getWeatherData', er)
   }
@@ -132,12 +133,13 @@ export async function getWeatherData() {
 export async function getPos(city) {
   try {
     const data = await AJAX(`${GEOPARSING_API_URL}locate=${city}&geoit=JSON`)
-    console.log('data on getPos: ', data)
     state.lat = data.latt * 1
     state.lon = data.longt * 1
     state.city = data.standard.city
+    state.country = data.standard.countryname
+    console.log(data)
   } catch (er) {
-    console.log('getPos', er)
+    console.log('getPos Error:', er)
   }
 }
 
@@ -168,5 +170,4 @@ export function buildCardData() {
     )
     state.days.push(day)
   }
-  console.log('building card...:', state)
 }

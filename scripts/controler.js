@@ -17,16 +17,18 @@ async function controlGetCityWeather() {
     if (!city) return
 
     // get coordinates
-    await model.getPos(city)
-
+    const resPos = await model.getPos(city)
+    console.log('resPos:', resPos)
     // get weather data:
-    await model.getWeatherData()
+    const resWeather = await model.getWeatherData()
+    console.log('resWeather', resWeather)
 
     model.buildCardData()
 
     // render cards
     if (!model.state.days) return
-    ResultView.renderCity(city)
+
+    ResultView.renderCity(model.state.city, model.state.country)
     ResultView.render(model.state.days)
   } catch (er) {
     console.log(`controlGetCity ${er}`)
@@ -37,7 +39,6 @@ async function controlGetCityWeather() {
 async function controlGetPosWeather() {
   async function success(position) {
     const { latitude, longitude } = position.coords
-    console.log('data on getPosGPS:', latitude, longitude)
     await model.getPosGPS(latitude, longitude)
 
     // get weather data
