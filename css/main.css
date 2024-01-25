@@ -212,8 +212,7 @@ body {
   display: inline-block;
 }
 
-.form-getPosition,
-.form-getCity {
+.form {
   max-width: 40%;
   display: flex;
   align-items: center;
@@ -221,27 +220,32 @@ body {
   padding: 0.5rem;
   flex-direction: column;
 }
-.form-getPosition_label,
-.form-getCity_label {
+.form-getCity {
+  max-width: 50%;
+}
+.form-getPosition {
+  justify-content: space-between;
+}
+.form-getPosition p {
+  width: 100%;
+}
+.form-getCity_label, .form-getPosition_label {
   display: inline-block;
   padding: 1rem 2rem;
   font-size: 1.25rem;
   text-align: center;
 }
-.form-getPosition_input,
-.form-getCity_input {
+.form-getCity_input, .form-getPosition_input {
   padding: 0.75rem 1.25rem;
   border: 1px solid rgb(145, 187, 255);
   border-radius: 1rem;
   font-size: 1.5rem;
   color: rgb(0, 71, 184);
 }
-.form-getPosition_input::placeholder,
-.form-getCity_input::placeholder {
+.form-getCity_input::placeholder, .form-getPosition_input::placeholder {
   color: rgb(145, 187, 255);
 }
-.form-getPosition_btn,
-.form-getCity_btn {
+.form-getCity_btn, .form-getPosition_btn {
   padding: 1rem 2rem;
   border-radius: 5px;
   background: linear-gradient(to bottom, rgb(47, 127, 255), rgb(0, 71, 184));
@@ -250,24 +254,14 @@ body {
   box-shadow: 0 1rem 3rem rgba(0, 8, 21, 0.3);
   transition: transform 0.25s;
 }
-.form-getPosition_btn:hover,
-.form-getCity_btn:hover {
+.form-getCity_btn:hover, .form-getPosition_btn:hover {
   transform: scale(1.01);
   box-shadow: 0 1.1rem 3.5rem rgba(0, 8, 21, 0.3);
 }
-.form-getPosition_btn:active,
-.form-getCity_btn:active {
+.form-getCity_btn:active, .form-getPosition_btn:active {
   transform: scale(0.99);
   box-shadow: 0 0.9rem 2.5rem rgba(0, 8, 21, 0.3);
   background: linear-gradient(to bottom, rgb(145, 187, 255), rgb(47, 127, 255));
-}
-
-.form-getCity {
-  max-width: 50%;
-}
-
-.form-getPosition p {
-  width: 100%;
 }
 
 .header {
