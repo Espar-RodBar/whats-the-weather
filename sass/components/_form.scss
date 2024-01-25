@@ -1,28 +1,24 @@
 .form-getPosition,
 .form-getCity {
-  max-width: 30rem;
+  max-width: 40%;
   display: flex;
   align-items: center;
   gap: 1rem;
-
-  //   &_input-container {
-  //     height: 4rem;
-  //     width: 100%;
-  //     text-align: center;
-  //   }
+  padding: 0.5rem;
+  flex-direction: column;
 
   &_label {
     display: inline-block;
     padding: 1rem 2rem;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     text-align: center;
   }
   &_input {
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.25rem;
     border: 1px solid $color-primary-light;
     border-radius: 1rem;
 
-    font-size: 2rem;
+    font-size: 1.5rem;
 
     color: $color-primary-dark;
 
@@ -31,12 +27,6 @@
     }
   }
 
-  //   &_btn-container {
-  //     position: relative;
-  //     padding: 1rem;
-  //     width: auto;
-  //     height: 6rem;
-  //   }
   &_btn {
     padding: 1rem 2rem;
     border-radius: 5px;
@@ -66,5 +56,10 @@
   }
 }
 .form-getCity {
-  flex-direction: column;
+  max-width: 50%;
+}
+.form-getPosition {
+  & p {
+    width: 100%;
+  }
 }

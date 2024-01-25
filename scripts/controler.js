@@ -48,7 +48,7 @@ async function controlGetPosWeather() {
 
     // render cards
     if (!model.state.days) return
-    ResultView.renderCity('From actual position.')
+    ResultView.renderCity(' actual position.')
     ResultView.render(model.state.days)
   }
   try {

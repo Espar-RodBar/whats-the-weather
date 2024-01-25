@@ -61,7 +61,7 @@ class ResultView {
     if (!city) throw new Error('empty string on the city parameter')
 
     const cityString = city + (country ? `(${country})` : '')
-    document.querySelector('.section-getposition-city span').textContent =
+    document.querySelector('.section-getPosition-city span').textContent =
       cityString
   }
 
