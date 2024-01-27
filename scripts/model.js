@@ -117,9 +117,10 @@ class DayWeatherInfo {
 }
 
 export async function getWeatherData() {
+  const API = process.env.GEOCODE_API ? `&auth=${process.env.GEOCODE_API}` : ''
   try {
     const data = await AJAX(
-      `${METEO_API_URL}latitude=${state.lat}&longitude=${state.lon}${METEO_API_OPT}`
+      `${METEO_API_URL}latitude=${state.lat}&longitude=${state.lon}${METEO_API_OPT}${API}`
     )
     state.data.dates = data.daily.time
     state.data.weatherCode = data.daily.weathercode
