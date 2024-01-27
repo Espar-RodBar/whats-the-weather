@@ -121,9 +121,10 @@ class DayWeatherInfo {
 
 export async function getWeatherData() {
   try {
-    const data = await AJAX(
-      `${METEO_API_URL}latitude=${state.lat}&longitude=${state.lon}${METEO_API_OPT}${API}`
-    )
+    const fetchURL = `${METEO_API_URL}latitude=${state.lat}&longitude=${state.lon}${METEO_API_OPT}${API}`
+    console.log(fetchURL)
+    const data = await AJAX(fetchURL)
+
     state.data.dates = data.daily.time
     state.data.weatherCode = data.daily.weathercode
     state.data.minTemp = data.daily.temperature_2m_min
