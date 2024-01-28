@@ -137,8 +137,8 @@ export async function getPos(city) {
     //console.log(fetchURL)
     //const data = await AJAX(fetchURL)
     const response = await fetch(`/.netlify/functions/getPosFromCity/${city}`)
-    const data = await JSON.parse(response)
-    console.log(response, data)
+    const data = await response.json()
+    console.log('netlify function:', response, data)
 
     state.lat = data.latt * 1
     state.lon = data.longt * 1
