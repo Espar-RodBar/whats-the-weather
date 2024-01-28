@@ -133,14 +133,17 @@ export async function getWeatherData() {
 
 export async function getPos(city) {
   try {
-    const fetchURL = `${GEOPARSING_API_URL}locate=${city}&geoit=JSON`
-    console.log(fetchURL)
-    const data = await AJAX(fetchURL)
+    //const fetchURL = `${GEOPARSING_API_URL}locate=${city}&geoit=JSON`
+    //console.log(fetchURL)
+    //const data = await AJAX(fetchURL)
+    const response = await fetch(`/.netlify/functions/getPosFromCity/${city}`)
+    const data = await JSON.parse(response)
+    console.log(response, data)
+
     state.lat = data.latt * 1
     state.lon = data.longt * 1
     state.city = data.standard.city
     state.country = data.standard.countryname
-    console.log(data)
   } catch (er) {
     console.log('getPos Error:', er)
   }
