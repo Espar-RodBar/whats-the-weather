@@ -136,7 +136,7 @@ export async function getPos(city) {
     //const fetchURL = `${GEOPARSING_API_URL}locate=${city}&geoit=JSON`
     //console.log(fetchURL)
     //const data = await AJAX(fetchURL)
-    const response = await fetch(`/.netlify/functions/getPosFromCity/${city}`)
+    const response = await fetch(`/netlify/functions/getPosFromCity/${city}`)
     const data = await response.json()
     console.log('netlify function:', response, data)
 
