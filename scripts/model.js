@@ -6,8 +6,6 @@ import {
   MAX_DAYS,
 } from './config.js'
 
-const API = process.env.GEOCODE_API ? `&auth=${process.env.GEOCODE_API}` : ''
-
 import { AJAX } from './helpers.js'
 
 export const state = {
@@ -121,9 +119,10 @@ class DayWeatherInfo {
 
 export async function getWeatherData() {
   try {
-    const data = await AJAX(
-      `${METEO_API_URL}latitude=${state.lat}&longitude=${state.lon}${METEO_API_OPT}${API}`
-    )
+    const fetchURL = `${METEO_API_URL}latitude=${state.lat}&longitude=${state.lon}${METEO_API_OPT}`
+    console.log(fetchURL)
+    const data = await AJAX(fetchURL)
+
     state.data.dates = data.daily.time
     state.data.weatherCode = data.daily.weathercode
     state.data.minTemp = data.daily.temperature_2m_min
