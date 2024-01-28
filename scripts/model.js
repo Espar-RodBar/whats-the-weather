@@ -120,7 +120,6 @@ class DayWeatherInfo {
 export async function getWeatherData() {
   try {
     const fetchURL = `${METEO_API_URL}latitude=${state.lat}&longitude=${state.lon}${METEO_API_OPT}`
-    console.log(fetchURL)
     const data = await AJAX(fetchURL)
 
     state.data.dates = data.daily.time
@@ -134,7 +133,9 @@ export async function getWeatherData() {
 
 export async function getPos(city) {
   try {
-    const data = await AJAX(`${GEOPARSING_API_URL}locate=${city}&geoit=JSON`)
+    const fetchURL = `${GEOPARSING_API_URL}locate=${city}&geoit=JSON`
+    console.log(fetchURL)
+    const data = await AJAX(fetchURL)
     state.lat = data.latt * 1
     state.lon = data.longt * 1
     state.city = data.standard.city
