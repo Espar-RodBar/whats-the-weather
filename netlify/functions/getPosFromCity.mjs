@@ -6,6 +6,7 @@ export default async (request, context) => {
   try {
     const response = await fetch(`${GEOPARSING_API_URL}&auth=${apiKey}`)
     const data = await response.json()
+    console.log('on getPosFromCity.mjs', data)
 
     return new Response({
       statusCode: 200,
