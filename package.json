@@ -20,5 +20,8 @@
   "homepage": "https://github.com/NCr4wl3r/whats-the-weather#readme",
   "devDependencies": {
     "sass": "^1.70.0"
+  },
+  "dependencies": {
+    "@netlify/functions": "^2.5.1"
   }
 }

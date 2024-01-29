@@ -1,8 +1,8 @@
 export default async (request, context) => {
   const apiKey = Netlify.env.get('GEOCODE_API')
-  const { city } = context.params
-  const GEOPARSING_API_URL = `https://geocode.xyz/?${city}`
-
+  const { location } = context.params
+  const GEOPARSING_API_URL = `https://geocode.xyz/?${location}`
+  console.log(request.body, context)
   try {
     const response = await fetch(`${GEOPARSING_API_URL}&auth=${apiKey}`)
     const data = await response.json()
@@ -20,6 +20,6 @@ export default async (request, context) => {
   }
 }
 
-export const config = {
-  path: '/getPosition/:city',
-}
+// export const config = {
+//   path: '/.netlify/functions/getPosFromCity/:location',
+// }
