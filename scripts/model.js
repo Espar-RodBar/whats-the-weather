@@ -136,14 +136,16 @@ export async function getPos(city) {
     //const fetchURL = `${GEOPARSING_API_URL}locate=${city}&geoit=JSON`
     //console.log(fetchURL)
     //const data = await AJAX(fetchURL)
-    const response = await fetch(`/.netlify/functions/getPosFromCity/`)
-    // const data = await response.json()
-    console.log('netlify function:', response)
+    const data = await fetch(
+      `/.netlify/functions/getPosFromCity?location=${city}`
+    )
 
-    state.lat = data.latt * 1
-    state.lon = data.longt * 1
-    state.city = data.standard.city
-    state.country = data.standard.countryname
+    console.log('netlify function:', data)
+
+    // state.lat = data.latt * 1
+    // state.lon = data.longt * 1
+    // state.city = data.standard.city
+    // state.country = data.standard.countryname
   } catch (er) {
     console.log('getPos Error:', er)
   }
