@@ -136,11 +136,10 @@ export async function getPos(city) {
     //const fetchURL = `${GEOPARSING_API_URL}locate=${city}&geoit=JSON`
     //console.log(fetchURL)
     //const data = await AJAX(fetchURL)
-    const data = await fetch(
-      `/netlify/functions/getPosFromCity?location=${city}`
-    )
 
-    console.log('netlify function:', data.body)
+    const data = await fetch(`/api/getPos/${city}`)
+
+    console.log('vercel function:', data.body)
 
     // state.lat = data.latt * 1
     // state.lon = data.longt * 1

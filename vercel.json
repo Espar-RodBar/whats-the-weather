@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/getPosFromCity.mjs": {
+      "memory": 1024
+    }
+  }
+}

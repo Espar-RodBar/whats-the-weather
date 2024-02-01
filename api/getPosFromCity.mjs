@@ -1,23 +1,18 @@
-export default async (req, context) => {
-  // const location = req.queryStringParameters.location
+// import fetch from 'node-fetch'
+
+export default async () => {
   // const apiKey = Netlify.env.get('GEOCODE_API')
-  // const GEOPARSING_API_URL = `https://geocode.xyz/?${location}`
-  console.log('on netlify fun:', req, context)
-  //try {
-  // const res = await fetch(`${GEOPARSING_API_URL}&auth=${apiKey}`)
-  // console.log('res on getPosFromCity.mjs', res)
-  // const data = await res.json()
-  // console.log('data on getPosFromCity.mjs', data)
 
-  return new Response('rainny')
-  // } catch (err) {
-  //   return {
-  //     statusCode: 400,
-  //     body: 'ERR On fetch geocites ' + err.toString(),
-  //   }
-  // }
-}
+  const GEOPARSING_API_URL = `https://geocode.xyz/?locate=${location}`
+  try {
+    //  const res = await fetch(`${GEOPARSING_API_URL}&auth=${apiKey}`)
+    console.log(GEOPARSING_API_URL)
+    const res = await fetch(`${GEOPARSING_API_URL}`)
+    const data = await res.json()
+    console.log('fetch:', res, data)
 
-export const config = {
-  path: '/netlify/functions/getPosFromCity/:location',
+    return { status: 200, data }
+  } catch (err) {
+    return new Error('Error fetching data')
+  }
 }
