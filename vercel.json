@@ -1,7 +1,3 @@
 {
-  "functions": {
-    "api/getPosFromCity.mjs": {
-      "memory": 1024
-    }
-  }
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
 }
