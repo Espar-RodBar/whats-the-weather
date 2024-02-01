@@ -1,6 +1,6 @@
-import express from 'express'
-import getPosFromCity from './getPosFromCity.mjs'
-import cors from 'cors'
+const express = require('express')
+const getPosFromCity = require('./getPosFromCity.js')
+const cors = require('cors')
 
 const app = express()
 app.use(cors())
