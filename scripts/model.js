@@ -18,6 +18,20 @@ export const state = {
   days: [],
 }
 
+export function setPosState(place) {
+  state.lat = place.latt * 1
+  state.lon = place.longt * 1
+  state.city = place.standard.city
+  state.country = place.standard.countryname
+}
+
+export function setWeatherState(weatherData) {
+  state.data.dates = weatherData.daily.time
+  state.data.weatherCode = weatherData.daily.weathercode
+  state.data.minTemp = weatherData.daily.temperature_2m_min
+  state.data.maxTemp = weatherData.daily.temperature_2m_max
+}
+
 export function resetState() {
   state.language = LANGUAGE
   state.lat = 0
@@ -122,12 +136,9 @@ export async function getWeatherData() {
     const fetchURL = `${METEO_API_URL}latitude=${state.lat}&longitude=${state.lon}${METEO_API_OPT}`
     const data = await AJAX(fetchURL)
 
-    state.data.dates = data.daily.time
-    state.data.weatherCode = data.daily.weathercode
-    state.data.minTemp = data.daily.temperature_2m_min
-    state.data.maxTemp = data.daily.temperature_2m_max
+    return data
   } catch (er) {
-    console.log('getWeatherData', er)
+    throw er
   }
 }
 
@@ -135,25 +146,20 @@ export async function getPos(city) {
   try {
     const res = await fetch(`/api/getPos/${city}`)
     const data = await res.json()
-    console.log('fetched position data:', data)
 
-    state.lat = data.latt * 1
-    state.lon = data.longt * 1
-    state.city = data.standard.city
-    state.country = data.standard.countryname
-    console.log('state:', state)
+    return data
   } catch (er) {
     console.log('getPos Error:', er)
   }
 }
 
-export async function getPosGPS(latitude, longitude) {
+export function getPosGPS(latitude, longitude) {
   try {
     state.lat = latitude * 1
     state.lon = longitude * 1
     state.city = ''
   } catch (er) {
-    console.log('getPos', er)
+    console.error('getPos', er)
   }
 }
 
@@ -164,6 +170,7 @@ export async function getPosGPS(latitude, longitude) {
 
 export function buildCardData() {
   const { data } = state
+
   for (let i = 0; i < MAX_DAYS; i++) {
     const day = new DayWeatherInfo(
       i + 1,
@@ -172,6 +179,7 @@ export function buildCardData() {
       data.maxTemp[i],
       data.weatherCode[i]
     )
+
     state.days.push(day)
   }
 }

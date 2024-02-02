@@ -18,39 +18,53 @@ async function controlGetCityWeather() {
 
     // get coordinates
     const resPos = await model.getPos(city)
-    console.log('resPos:', resPos)
-    // get weather data:
-    const resWeather = await model.getWeatherData()
-    console.log('resWeather', resWeather)
 
-    model.buildCardData()
+    if (resPos.status === 200 && !resPos.error) {
+      model.setPosState(resPos)
 
-    // render cards
-    if (!model.state.days) return
+      // get weather data:
+      const resWeather = await model.getWeatherData()
+      model.setWeatherState(resWeather)
 
-    ResultView.renderCity(model.state.city, model.state.country)
-    ResultView.render(model.state.days)
+      model.buildCardData()
+
+      // render cards
+      if (!model.state.days) return
+
+      ResultView.renderCity(model.state.city, model.state.country)
+      ResultView.render(model.state.days)
+    } else throw new Error('Error getting the coordinates.')
   } catch (er) {
-    console.log(`controlGetCity ${er}`)
+    console.error(`controlGetCity ${er}`)
     ResultView.renderError(er)
   }
 }
 
 async function controlGetPosWeather() {
   async function success(position) {
-    const { latitude, longitude } = position.coords
-    await model.getPosGPS(latitude, longitude)
+    const placeCoordinates = {
+      latt: position.coords.latitude,
+      longt: position.coords.longitude,
+      standard: {
+        city: 'actual position',
+        countryname: '',
+      },
+    }
 
-    // get weather data
-    await model.getWeatherData()
+    model.setPosState(placeCoordinates)
+
+    // get weather data:
+    const resWeather = await model.getWeatherData()
+    model.setWeatherState(resWeather)
 
     model.buildCardData()
 
     // render cards
     if (!model.state.days) return
-    ResultView.renderCity(' actual position.')
+    ResultView.renderCity(model.state.city)
     ResultView.render(model.state.days)
   }
+
   try {
     // Reset state:
     model.resetState()
@@ -63,7 +77,7 @@ async function controlGetPosWeather() {
       throw new Error("Couldn't get geolocation")
     })
   } catch (er) {
-    console.log(`controlGetCity ${er}`)
+    console.error(`controlGetCity ${er}`)
     ResultView.renderError(er)
   }
 }
