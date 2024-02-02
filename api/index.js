@@ -1,18 +1,29 @@
 const express = require('express')
-const getPosFromCity = require('./getPosFromCity.js')
+
 const cors = require('cors')
-
+const apiKey = process.env.GEOCODE_API
 const app = express()
-app.use(cors())
+app.use(cors({ origin: '*' }))
 
-app.get('/api', (req, res) => {
-  response.status(200).send('Api working')
-})
+async function getPosCity(location) {
+  const GEOPARSING_API_URL = `https://geocode.xyz/?locate=${location}&geoit=JSON`
 
-app.get('/api/getPos/:location', (req, res) => {
+  try {
+    const res = await fetch(`${GEOPARSING_API_URL}&auth=${apiKey}`)
+    console.log(res)
+    const data = await res.json()
+    return { status: res.status, data }
+  } catch (err) {
+    return { status: 500, message: err }
+  }
+}
+
+app.get('/api/getPos/:location', async (req, res) => {
   console.log('route getPosFromCity')
-
   const location = req.params.location
-  const result = getPosFromCity(location)
-  console.log(result)
+
+  const result = await getPosCity(location)
+  res.status(200).json({ result })
 })
+
+module.exports = app
