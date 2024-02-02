@@ -133,18 +133,15 @@ export async function getWeatherData() {
 
 export async function getPos(city) {
   try {
-    //const fetchURL = `${GEOPARSING_API_URL}locate=${city}&geoit=JSON`
-    //console.log(fetchURL)
-    //const data = await AJAX(fetchURL)
+    const res = await fetch(`/api/getPos/${city}`)
+    const data = await res.json()
+    console.log('fetched position data:', data)
 
-    const data = await fetch(`/api/getPos/${city}`)
-
-    console.log('vercel function:', data.body)
-
-    // state.lat = data.latt * 1
-    // state.lon = data.longt * 1
-    // state.city = data.standard.city
-    // state.country = data.standard.countryname
+    state.lat = data.latt * 1
+    state.lon = data.longt * 1
+    state.city = data.standard.city
+    state.country = data.standard.countryname
+    console.log('state:', state)
   } catch (er) {
     console.log('getPos Error:', er)
   }

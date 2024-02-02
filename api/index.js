@@ -10,20 +10,16 @@ async function getPosCity(location) {
 
   try {
     const res = await fetch(`${GEOPARSING_API_URL}&auth=${apiKey}`)
-    console.log(res)
     const data = await res.json()
-    return { status: res.status, data }
+    return { status: res.status, ...data }
   } catch (err) {
     return { status: 500, message: err }
   }
 }
 
 app.get('/api/getPos/:location', async (req, res) => {
-  console.log('route getPosFromCity')
-  const location = req.params.location
-
-  const result = await getPosCity(location)
-  res.status(200).json({ result })
+  const result = await getPosCity(req.params.location)
+  res.status(200).json({ ...result })
 })
 
 module.exports = app
