@@ -138,7 +138,7 @@ export async function getWeatherData() {
 
     return data
   } catch (er) {
-    console.log('getWeatherData', er)
+    throw er
   }
 }
 
@@ -146,22 +146,20 @@ export async function getPos(city) {
   try {
     const res = await fetch(`/api/getPos/${city}`)
     const data = await res.json()
-    console.log('fetched position data:', data)
 
-    console.log('state:', state)
     return data
   } catch (er) {
     console.log('getPos Error:', er)
   }
 }
 
-export async function getPosGPS(latitude, longitude) {
+export function getPosGPS(latitude, longitude) {
   try {
     state.lat = latitude * 1
     state.lon = longitude * 1
     state.city = ''
   } catch (er) {
-    console.log('getPos', er)
+    console.error('getPos', er)
   }
 }
 
@@ -172,6 +170,7 @@ export async function getPosGPS(latitude, longitude) {
 
 export function buildCardData() {
   const { data } = state
+
   for (let i = 0; i < MAX_DAYS; i++) {
     const day = new DayWeatherInfo(
       i + 1,
@@ -180,6 +179,7 @@ export function buildCardData() {
       data.maxTemp[i],
       data.weatherCode[i]
     )
+
     state.days.push(day)
   }
 }
