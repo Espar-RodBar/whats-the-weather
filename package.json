@@ -20,5 +20,11 @@
   "homepage": "https://github.com/NCr4wl3r/whats-the-weather#readme",
   "devDependencies": {
     "sass": "^1.70.0"
+  },
+  "dependencies": {
+    "@netlify/functions": "^2.5.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
   }
 }
