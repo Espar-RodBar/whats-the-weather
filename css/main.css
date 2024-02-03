@@ -103,7 +103,7 @@ body {
   -moz-perspective: 200rem;
   -webkit-perspective: 200rem;
   position: relative;
-  transition: all 1.8s;
+  transition: transform 0.5s;
 }
 .result-weather-card .side, .result-weather-card .back {
   border-radius: 3px;
@@ -114,7 +114,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  transition: all 1.8s;
+  transition: transform 0.3s;
 }
 .result-weather-card .side {
   background: linear-gradient(rgb(231, 240, 255), rgb(231, 240, 255)) padding-box, linear-gradient(to bottom, rgb(145, 187, 255), rgb(0, 71, 184)) border-box;
@@ -217,11 +217,22 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
   flex-direction: column;
+}
+@media (max-width: 25em) {
+  .form {
+    max-width: none;
+    padding: 1rem 1rem 1.5rem;
+  }
 }
 .form-getCity {
   max-width: 50%;
+}
+@media (max-width: 25em) {
+  .form-getCity {
+    max-width: none;
+  }
 }
 .form-getPosition {
   justify-content: space-between;
@@ -236,7 +247,7 @@ body {
   text-align: center;
 }
 .form-getCity_input, .form-getPosition_input {
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 1rem;
   border: 1px solid rgb(145, 187, 255);
   border-radius: 1rem;
   font-size: 1.5rem;
@@ -266,6 +277,7 @@ body {
 
 .header {
   max-width: 60rem;
+  margin: 0 auto;
   padding: 3rem;
   background: linear-gradient(to right, rgb(47, 127, 255), rgb(0, 71, 184));
   border-top-left-radius: 5px;
@@ -273,9 +285,17 @@ body {
   color: rgb(231, 240, 255);
   box-shadow: 0 1rem 2rem rgba(0, 8, 21, 0.2);
 }
+@media (max-width: 25em) {
+  .header {
+    max-width: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
 
 .main {
   margin: 0 auto;
+  max-width: 60rem;
 }
 
 .section-getPosition {
@@ -295,6 +315,13 @@ body {
   font-size: 1.6rem;
   width: 100%;
 }
+@media (max-width: 25em) {
+  .section-getPosition {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
 
 .section-result {
   max-width: 60rem;
@@ -303,6 +330,20 @@ body {
   border-bottom-right-radius: 5px;
   background: linear-gradient(to right, rgb(47, 127, 255), rgb(0, 71, 184));
   box-shadow: 0 2rem 4rem rgba(0, 8, 21, 0.2);
+}
+@media (max-width: 25em) {
+  .section-result {
+    max-width: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.footer {
+  text-align: center;
+  padding-top: 5rem;
+  margin: 0 auto;
+  max-width: 60rem;
 }
 
 /*# sourceMappingURL=main.css.map */

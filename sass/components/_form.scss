@@ -3,11 +3,20 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
   flex-direction: column;
+
+  @media (max-width: 25em) {
+    max-width: none;
+    padding: 1rem 1rem 1.5rem;
+  }
 
   &-getCity {
     max-width: 50%;
+
+    @media (max-width: 25em) {
+      max-width: none;
+    }
   }
   &-getPosition {
     & p {
@@ -25,7 +34,7 @@
       text-align: center;
     }
     &_input {
-      padding: 0.75rem 1.25rem;
+      padding: 0.5rem 1rem;
       border: 1px solid $color-primary-light;
       border-radius: 1rem;
 
