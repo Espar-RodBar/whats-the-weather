@@ -103,7 +103,7 @@ body {
   -moz-perspective: 200rem;
   -webkit-perspective: 200rem;
   position: relative;
-  transition: all 1.8s;
+  transition: transform 0.5s;
 }
 .result-weather-card .side, .result-weather-card .back {
   border-radius: 3px;
@@ -114,7 +114,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  transition: all 1.8s;
+  transition: transform 0.3s;
 }
 .result-weather-card .side {
   background: linear-gradient(rgb(231, 240, 255), rgb(231, 240, 255)) padding-box, linear-gradient(to bottom, rgb(145, 187, 255), rgb(0, 71, 184)) border-box;

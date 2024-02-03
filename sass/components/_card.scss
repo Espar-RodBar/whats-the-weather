@@ -1,180 +1,170 @@
 .result-weather {
-    &-container {
-        display: flex;
-        flex-flow: wrap;
-        gap: 1rem;
+  &-container {
+    display: flex;
+    flex-flow: wrap;
+    gap: 1rem;
+  }
+
+  &-card {
+    margin: 0 auto;
+    display: inline-block;
+    background-color: transparent;
+    width: 13rem;
+    height: 20rem;
+    perspective: 200rem;
+    -moz-perspective: 200rem;
+    -webkit-perspective: 200rem;
+    position: relative;
+
+    transition: transform 0.5s;
+
+    & .side,
+    & .back {
+      border-radius: 3px;
+      border: 1px solid transparent;
+
+      padding: 2rem 1rem;
+      width: 100%;
+      height: 20rem;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      transition: transform 0.3s;
     }
 
-    &-card {
-        margin: 0 auto;
-        display: inline-block;
-        background-color: transparent;
-        width: 13rem;
-        height: 20rem;
-        perspective: 200rem;
-        -moz-perspective: 200rem;
-        -webkit-perspective: 200rem;
-        position: relative;
+    & .side {
+      background:
+        linear-gradient($color-white, $color-white) padding-box,
+        linear-gradient(to bottom, $color-primary-light, $color-primary-dark)
+          border-box;
 
-        transition: all 1.8s;
-
-        & .side,
-        & .back {
-            border-radius: 3px;
-            border: 1px solid transparent;
-
-            padding: 2rem 1rem;
-            width: 100%;
-            height: 20rem;
-
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            transition: all 1.8s;
-        }
-
-        & .side {
-            background: linear-gradient($color-white, $color-white) padding-box,
-                linear-gradient(
-                        to bottom,
-                        $color-primary-light,
-                        $color-primary-dark
-                    )
-                    border-box;
-
-            z-index: 10;
-            backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-        }
-
-        & .back {
-            backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-
-            background: linear-gradient(
-                        to left bottom,
-                        $color-white,
-                        $color-primary-light
-                    )
-                    padding-box,
-                linear-gradient(
-                        to bottom,
-                        $color-primary-light,
-                        $color-primary-dark
-                    )
-                    border-box;
-            transform: rotateY(-180deg);
-        }
-
-        &:hover {
-            & .side {
-                transform: rotateY(360deg);
-                -webkit-transform: rotateY(360deg);
-                // box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
-            }
-            & .back {
-                transform: rotateY(180deg);
-                -webkit-transform: rotateY(180deg);
-                // box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
-            }
-
-            transform: translateY(-1rem) scale(1.2);
-        }
-
-        & .card-header {
-            text-align: center;
-        }
-
-        &_text {
-            text-align: center;
-            background: linear-gradient(
-                to right,
-                transparent,
-                $color-black 20% 80%,
-                transparent
-            );
-            color: $color-white;
-        }
-        &_highT,
-        &_lowT {
-            padding: 0.5rem 0;
-            display: inline-block;
-        }
-        &_highT {
-            float: left;
-        }
-        &_lowT {
-            float: right;
-        }
-
-        &_box {
-            width: 100%;
-            height: 10rem;
-            border-radius: 5%;
-            background-color: $color-primary-dark;
-            overflow: hidden;
-
-            position: relative;
-
-            & .img_sun {
-                width: 60%;
-                height: 60%;
-                position: absolute;
-                top: 40%;
-                left: 50%;
-                transform: translate(-50%, -50%) rotateZ(0deg);
-
-                animation: rotateSun 50s infinite;
-            }
-
-            & .img_cloud_d {
-                width: 70%;
-                height: 70%;
-                position: absolute;
-                top: 30%;
-                left: 20%;
-
-                animation: moveInLeft 20s infinite;
-
-                z-index: 130;
-            }
-
-            & .img_cloud_r {
-                width: 65%;
-                height: 65%;
-                position: absolute;
-                top: 15%;
-                right: 0%;
-
-                animation: moveInLeft 12s infinite;
-
-                z-index: 100;
-            }
-            & .img_cloud_l {
-                width: 65%;
-                height: 65%;
-                position: absolute;
-                top: 25%;
-                left: 0%;
-
-                animation: moveInRight 11s infinite;
-
-                z-index: 100;
-            }
-        }
-
-        & .temp-img {
-            width: 1rem;
-            height: auto;
-        }
-
-        & .temp_h-text,
-        & .temp_l-text {
-            font-size: 0.8rem;
-            display: inline-block;
-        }
+      z-index: 10;
+      backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
+
+    & .back {
+      backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+
+      background:
+        linear-gradient(to left bottom, $color-white, $color-primary-light)
+          padding-box,
+        linear-gradient(to bottom, $color-primary-light, $color-primary-dark)
+          border-box;
+      transform: rotateY(-180deg);
+    }
+
+    &:hover {
+      & .side {
+        transform: rotateY(360deg);
+        -webkit-transform: rotateY(360deg);
+        // box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
+      }
+      & .back {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        // box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
+      }
+
+      transform: translateY(-1rem) scale(1.2);
+    }
+
+    & .card-header {
+      text-align: center;
+    }
+
+    &_text {
+      text-align: center;
+      background: linear-gradient(
+        to right,
+        transparent,
+        $color-black 20% 80%,
+        transparent
+      );
+      color: $color-white;
+    }
+    &_highT,
+    &_lowT {
+      padding: 0.5rem 0;
+      display: inline-block;
+    }
+    &_highT {
+      float: left;
+    }
+    &_lowT {
+      float: right;
+    }
+
+    &_box {
+      width: 100%;
+      height: 10rem;
+      border-radius: 5%;
+      background-color: $color-primary-dark;
+      overflow: hidden;
+
+      position: relative;
+
+      & .img_sun {
+        width: 60%;
+        height: 60%;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateZ(0deg);
+
+        animation: rotateSun 50s infinite;
+      }
+
+      & .img_cloud_d {
+        width: 70%;
+        height: 70%;
+        position: absolute;
+        top: 30%;
+        left: 20%;
+
+        animation: moveInLeft 20s infinite;
+
+        z-index: 130;
+      }
+
+      & .img_cloud_r {
+        width: 65%;
+        height: 65%;
+        position: absolute;
+        top: 15%;
+        right: 0%;
+
+        animation: moveInLeft 12s infinite;
+
+        z-index: 100;
+      }
+      & .img_cloud_l {
+        width: 65%;
+        height: 65%;
+        position: absolute;
+        top: 25%;
+        left: 0%;
+
+        animation: moveInRight 11s infinite;
+
+        z-index: 100;
+      }
+    }
+
+    & .temp-img {
+      width: 1rem;
+      height: auto;
+    }
+
+    & .temp_h-text,
+    & .temp_l-text {
+      font-size: 0.8rem;
+      display: inline-block;
+    }
+  }
 }
