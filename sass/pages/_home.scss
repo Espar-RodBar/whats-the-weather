@@ -1,5 +1,6 @@
 .header {
   max-width: 60rem;
+  margin: 0 auto;
 
   padding: 3rem;
   background: linear-gradient(to right, $color-primary, $color-primary-dark);
@@ -8,9 +9,16 @@
   color: $color-white;
 
   box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+  @media (max-width: 25em) {
+    max-width: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 }
 .main {
   margin: 0 auto;
+  max-width: 60rem;
 }
 
 .section-getPosition {
@@ -31,6 +39,12 @@
     font-size: 1.6rem;
     width: 100%;
   }
+
+  @media (max-width: 25em) {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
 }
 
 .section-result {
@@ -41,4 +55,16 @@
   border-bottom-right-radius: 5px;
   background: linear-gradient(to right, $color-primary, $color-primary-dark);
   box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+  @media (max-width: 25em) {
+    max-width: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.footer {
+  text-align: center;
+  padding-top: 5rem;
+  margin: 0 auto;
+  max-width: 60rem;
 }
