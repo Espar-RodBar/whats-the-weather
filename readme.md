@@ -4,11 +4,19 @@
 
 This app try to show the weather of the next 7 days of your location or the city you enter.
 
-URL: https://espar-rodbar.github.io/whats-the-weather/
+URL: https://whats-the-weather-xsdwj6ef1-espar-rodbar.vercel.app
+
+It is possible to get all the info from two sources: asking for a city (and especifying the country) or just using the location from the browser API, but this can require permisions from the user.
+
+Then it is going to get the position in latitude and longitude, and with that information, will check in open-meteo.com the weather.
+
+The initial days are more accurate, later global weather models provide a prevision up to 7 days.
 
 ## Tools used:
 
 This app uses the "open-meteo.com" free api to get the weather info and geocode.xyz to get the coodinates of cities.
+
+I used vercel to deploy it, and a serverless function is used to hide the authorization key from the front end.
 
 ## Icons:
 
