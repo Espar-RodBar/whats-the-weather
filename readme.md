@@ -4,7 +4,7 @@
 
 This app try to show the weather of the next 7 days of your location or the city you enter.
 
-URL: https://whats-the-weather-xsdwj6ef1-espar-rodbar.vercel.app
+URL: https://whats-the-weather-gamma.vercel.app/
 
 It is possible to get all the info from two sources: asking for a city (and especifying the country) or just using the location from the browser API, but this can require permisions from the user.
 
